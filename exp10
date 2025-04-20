@@ -1,0 +1,20 @@
+def rabin_karp_match(T, P, q):
+n = len(T)
+m = len(str(P))
+p_hash = P % q
+count = 0
+print(f"Pattern Hash (P mod q): {p_hash}\n")
+for i in range(n - m + 1):
+substring = int(T[i:i + m])
+t_hash = substring % q
+print(f"T[{i}:{i + m}] = {substring} -> Hash = {t_hash}")
+if t_hash == p_hash:
+if substring == P:
+print(f"Exact Match at position {i}")
+else:
+count += 1
+print("\nCount =", count)
+T = "31415926535"
+P = 26
+q = 11
+rabin_karp_match(T, P, q)
